@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AdvanHR - Intelligent HR Solutions</title>
+  <!-- Tailwind CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    /* Hero Background Image + Gradient Overlay without Tailwind @apply */
+    .hero {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      height: 100vh;
+      overflow: hidden;
+        background-color: #1e3a8a; /* Fallback color */
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('assets/img/image.jpg'); /* Ensure correct path */
+      background-size: cover;
+      background-position: center;
+      z-index: 1;
+      opacity: 0.3;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      /* background: linear-gradient(to right, rgba(30,64,175,0.7), rgba(59,130,246,0.7)); */
+      z-index: 2;
+      color: black;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 3;
+    }
+  </style>
+</head>
+
+<body class="font-sans text-gray-800 leading-relaxed">
+  <!-- Header -->
+  <header class="fixed top-0 left-0 w-full bg-white shadow z-50">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <div class="text-2xl font-bold text-blue-800">AdvanHR</div>
+      <nav>
+        <ul class="hidden md:flex space-x-8">
+          <li><a href="#hero" class="text-gray-700 hover:text-blue-800">Home</a></li>
+          <li><a href="#features" class="text-gray-700 hover:text-blue-800">Features</a></li>
+          <li><a href="#overview" class="text-gray-700 hover:text-blue-800">Technical Overview</a></li>
+          <li><a href="#team" class="text-gray-700 hover:text-blue-800">Team</a></li>
+          <li><a href="#contact" class="text-gray-700 hover:text-blue-800">Contact</a></li>
+        </ul>
+        <button id="menu-toggle" class="md:hidden text-2xl">☰</button>
+      </nav>
+    </div>
+    <div id="mobile-menu" class="hidden bg-white shadow-md">
+      <ul class="flex flex-col p-4 space-y-2">
+        <li><a href="#hero" class="block text-gray-700">Home</a></li>
+        <li><a href="#features" class="block text-gray-700">Features</a></li>
+        <li><a href="#overview" class="block text-gray-700">Technical Overview</a></li>
+        <li><a href="#team" class="block text-gray-700">Team</a></li>
+        <li><a href="#contact" class="block text-gray-700">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
+    <div class="hero-content px-4 text-white">
+      <h1 class="text-5xl font-bold mb-4">AdvanHR</h1>
+      <p class="text-xl max-w-2xl mx-auto mb-6">An AI-Powered HR Management Solution Registered by Microsoft</p>
+      <a href="#features" class="px-6 py-3 bg-yellow-500 hover:bg-yellow-600 text-white font-semibold rounded-lg transition">Explore Features</a>
+    </div>
+  </section>
+
+  <!-- Introduction -->
+  <section id="introduction" class="py-20 bg-gray-100 px-4">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl font-semibold text-center mb-6 text-blue-800">Introduction</h2>
+      <p>In today's fast-paced business environment, efficient human resource management is crucial for organizational success. <strong>AdvanHR</strong>, a Microsoft-registered startup, is an innovative digital solution designed to enhance HR operations through automation, advanced analytics, and intelligent processing. It streamlines HR tasks and supports decision-making via a Virtual Assistant, Analytics, Forecasting, Document Intelligence, and a Chatbot for self-service support.</p>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="py-20 bg-white px-4">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl font-semibold text-center mb-12 text-blue-800">Key Features</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="p-6 bg-gray-50 rounded-lg shadow">
+          <h3 class="font-bold mb-2">Virtual Assistant</h3>
+          <p>Natural language queries converted to SQL via LangSQL-mini and LangSQL for fast, accurate responses, hosted securely on Azure.</p>
+        </div>
+        <div class="p-6 bg-gray-50 rounded-lg shadow">
+          <h3 class="font-bold mb-2">Document Intelligence</h3>
+          <p>Upload PDFs, DOCX, TXT. Content is chunked (≤500 tokens), embedded (Embedding-3 Large), and indexed in Azure AI Search for instant Q&A.</p>
+        </div>
+        <div class="p-6 bg-gray-50 rounded-lg shadow">
+          <h3 class="font-bold mb-2">Forecasting</h3>
+          <p>Analyzes 600k+ records with EDA-driven feature engineering to predict employee turnover and sales trends.</p>
+        </div>
+        <div class="p-6 bg-gray-50 rounded-lg shadow">
+          <h3 class="font-bold mb-2">AI-Driven Analytics</h3>
+          <p>Automatically detects trends from data and generates insights, assisting HR with proactive decision-making.</p>
+        </div>
+        <div class="p-6 bg-gray-50 rounded-lg shadow">
+          <h3 class="font-bold mb-2">Chatbot Support</h3>
+          <p>24/7 employee self-service built in Azure AI Studio, trained on policy documents for accurate assistance.</p>
+        </div>
+        <div class="p-6 bg-gray-50 rounded-lg shadow">
+          <h3 class="font-bold mb-2">Resume Screening</h3>
+          <p>Automates resume filtering and initial technical assessments to shortlist qualified candidates efficiently.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Overview -->
+  <section id="overview" class="py-20 bg-blue-50 px-4">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl font-semibold text-center mb-12 text-blue-800">Technical Overview</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="p-6 bg-white rounded-lg shadow">
+          <h3 class="font-bold mb-2">Virtual Assistant</h3>
+          <p>LangSQL-mini for quick, low-resource NL-to-SQL; LangSQL for high-accuracy conversions. Hosted via Azure Cognitive Services.</p>
+        </div>
+        <div class="p-6 bg-white rounded-lg shadow">
+          <h3 class="font-bold mb-2">Document Intelligence</h3>
+          <p>Chunks of ≤500 tokens are embedded (Embedding-3 Large) and indexed in Azure AI Search with id, content, embeddings fields.</p>
+        </div>
+        <div class="p-6 bg-white rounded-lg shadow">
+          <h3 class="font-bold mb-2">Forecasting Module</h3>
+          <p>600,000+ records processed. EDA for feature selection and engineering, training predictive models for turnover and sales.</p>
+        </div>
+        <div class="p-6 bg-white rounded-lg shadow">
+          <h3 class="font-bold mb-2">Chatbot System</h3>
+          <p>Azure AI Studio assistant trained on policy docs, providing contextual responses to employee inquiries.</p>
+        </div>
+        <div class="p-6 bg-white rounded-lg shadow">
+          <h3 class="font-bold mb-2">Analytics Module</h3>
+          <p>User-Driven: Custom queries via LangSQL-mini<br>AI-Driven: Automated trend detection and question generation for insights.</p>
+        </div>
+        <div class="p-6 bg-white rounded-lg shadow">
+          <h3 class="font-bold mb-2">Resume Screening</h3>
+          <p>Filters and shortlists candidates based on predefined criteria; conducts initial technical screening calls.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section id="team" class="py-20 bg-gray-100 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-semibold mb-8 text-blue-800">Our Team</h2>
+      <ul class="space-y-6">
+        <li><strong>Syed M. Adnan Shah</strong><br>Supervisor<br><a href="mailto:syed.adnan@uettaxila.edu.pk" class="text-blue-600">syed.adnan@uettaxila.edu.pk</a></li>
+        <li><strong>Hamza Iftikhar</strong><br>Final Year Student, CS<br><a href="mailto:21-CS-45@students.uettaxila.edu.pk" class="text-blue-600">21-CS-45@students.uettaxila.edu.pk</a></li>
+        <li><strong>Muhammad Hasnain</strong><br>Final Year Student, CS<br><a href="mailto:21-CS-96@students.uettaxila.edu.pk" class="text-blue-600">21-CS-96@students.uettaxila.edu.pk</a></li>
+        <li><strong>Zunysha Naveed</strong><br>Final Year Student, CS<br><a href="mailto:21-CS-75@students.uettaxila.edu.pk" class="text-blue-600">21-CS-75@students.uettaxila.edu.pk</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Contact
+  <section id="contact" class="py-12 bg-white text-center px-4">
+    <p class="max-w-xl mx-auto">Deploy this static site easily via Azure Static Web Apps. Connect your GitHub repo, point to this index.html, and let Azure handle the rest.</p>
+  </section> -->
+
+  <!-- Footer -->
+  <footer class="py-6 bg-gray-50 text-center text-gray-600 text-sm">
+    &copy; 2025 AdvanHR. All rights reserved.
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Mobile Menu Toggle
+    document.getElementById('menu-toggle').addEventListener('click', () => {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    });
+    // Smooth Scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+
+</html>
