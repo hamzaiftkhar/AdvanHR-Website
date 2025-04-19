@@ -5,19 +5,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AdvanHR - Intelligent HR Solutions</title>
-  <!-- Tailwind CSS CDN -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <style>
-    /* Hero Background Image + Gradient Overlay without Tailwind @apply */
     .hero {
       position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      height: 100vh;
+      min-height: 100vh;
+      background-color: #1e3a8a;
       overflow: hidden;
-        background-color: #1e3a8a; /* Fallback color */
     }
     .hero::before {
       content: '';
@@ -26,171 +25,249 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-image: url('assets/img/image.jpg'); /* Ensure correct path */
+      background-image: url('assets/img/image.jpg');
       background-size: cover;
       background-position: center;
       z-index: 1;
       opacity: 0.3;
     }
-    .hero::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      /* background: linear-gradient(to right, rgba(30,64,175,0.7), rgba(59,130,246,0.7)); */
-      z-index: 2;
-      color: black;
-    }
     .hero-content {
       position: relative;
-      z-index: 3;
+      z-index: 2;
+    }
+    #mobile-menu {
+      transition: all 0.3s ease-in-out;
     }
   </style>
 </head>
 
 <body class="font-sans text-gray-800 leading-relaxed">
   <!-- Header -->
-  <header class="fixed top-0 left-0 w-full bg-white shadow z-50">
-    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-      <div class="text-2xl font-bold text-blue-800">AdvanHR</div>
+  <header class="fixed top-0 left-0 w-full bg-gradient-to-r from-blue-800 to-indigo-600 shadow-lg z-50">
+    <div class="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
+      <a href="#hero" class="flex items-center text-white">
+        <i class="fas fa-user-tie text-xl sm:text-2xl mr-2"></i>
+        <span class="text-xl sm:text-2xl font-extrabold tracking-wide">AdvanHR</span>
+      </a>
       <nav>
-        <ul class="hidden md:flex space-x-8">
-          <li><a href="#hero" class="text-gray-700 hover:text-blue-800">Home</a></li>
-          <li><a href="#features" class="text-gray-700 hover:text-blue-800">Features</a></li>
-          <li><a href="#overview" class="text-gray-700 hover:text-blue-800">Technical Overview</a></li>
-          <li><a href="#team" class="text-gray-700 hover:text-blue-800">Team</a></li>
-          <li><a href="#contact" class="text-gray-700 hover:text-blue-800">Contact</a></li>
+        <ul class="hidden md:flex space-x-4 lg:space-x-8 items-center">
+          <li><a href="#hero" class="relative text-white hover:text-yellow-300 transition text-sm lg:text-base">Home</a></li>
+          <li><a href="#features" class="relative text-white hover:text-yellow-300 transition text-sm lg:text-base">Features</a></li>
+          <li><a href="#overview" class="relative text-white hover:text-yellow-300 transition text-sm lg:text-base">Technical</a></li>
+          <li><a href="#tech-stack" class="relative text-white hover:text-yellow-300 transition text-sm lg:text-base">Technology</a></li>
+          <li><a href="#team" class="relative text-white hover:text-yellow-300 transition text-sm lg:text-base">Team</a></li>
+          <li><a href="#contact" class="relative text-white hover:text-yellow-300 transition text-sm lg:text-base">Contact</a></li>
         </ul>
-        <button id="menu-toggle" class="md:hidden text-2xl">☰</button>
+        <button id="menu-toggle" class="md:hidden text-white text-2xl focus:outline-none">☰</button>
       </nav>
     </div>
-    <div id="mobile-menu" class="hidden bg-white shadow-md">
+    <div id="mobile-menu" class="hidden bg-white shadow-md absolute w-full">
       <ul class="flex flex-col p-4 space-y-2">
-        <li><a href="#hero" class="block text-gray-700">Home</a></li>
-        <li><a href="#features" class="block text-gray-700">Features</a></li>
-        <li><a href="#overview" class="block text-gray-700">Technical Overview</a></li>
-        <li><a href="#team" class="block text-gray-700">Team</a></li>
-        <li><a href="#contact" class="block text-gray-700">Contact</a></li>
+        <li><a href="#hero" class="block text-gray-700 text-sm py-2">Home</a></li>
+        <li><a href="#features" class="block text-gray-700 text-sm py-2">Features</a></li>
+        <li><a href="#overview" class="block text-gray-700 text-sm py-2">Technical Overview</a></li>
+        <li><a href="#tech-stack" class="block text-gray-700 text-sm py-2">Technology</a></li>
+        <li><a href="#team" class="block text-gray-700 text-sm py-2">Team</a></li>
+        <li><a href="#contact" class="block text-gray-700 text-sm py-2">Contact</a></li>
       </ul>
     </div>
   </header>
 
   <!-- Hero Section -->
-  <section id="hero" class="hero">
-    <div class="hero-content px-4 text-white">
-      <h1 class="text-5xl font-bold mb-4">AdvanHR</h1>
-      <p class="text-xl max-w-2xl mx-auto mb-6">An AI-Powered HR Management Solution Registered by Microsoft</p>
-      <a href="#features" class="px-6 py-3 bg-yellow-500 hover:bg-yellow-600 text-white font-semibold rounded-lg transition">Explore Features</a>
+  <section id="hero" class="hero pt-16">
+    <div class="hero-content px-4 sm:px-6 text-white">
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4">AdvanHR</h1>
+      <p class="text-lg sm:text-xl md:text-2xl max-w-2xl mx-auto mb-6 px-2">An AI-Powered HR Management Solution Registered by Microsoft</p>
+      <a href="manual.pdf" target="_blank" class="inline-block px-6 py-3 sm:px-8 sm:py-4 bg-yellow-500 hover:bg-yellow-600 text-white font-semibold rounded-lg shadow-lg transition text-sm sm:text-base">AdvanHR Detailed Documentation</a>
     </div>
   </section>
 
   <!-- Introduction -->
-  <section id="introduction" class="py-20 bg-gray-100 px-4">
-    <div class="max-w-4xl mx-auto">
-      <h2 class="text-3xl font-semibold text-center mb-6 text-blue-800">Introduction</h2>
-      <p>In today's fast-paced business environment, efficient human resource management is crucial for organizational success. <strong>AdvanHR</strong>, a Microsoft-registered startup, is an innovative digital solution designed to enhance HR operations through automation, advanced analytics, and intelligent processing. It streamlines HR tasks and supports decision-making via a Virtual Assistant, Analytics, Forecasting, Document Intelligence, and a Chatbot for self-service support.</p>
+  <section id="introduction" class="py-12 px-4 sm:px-6 bg-white">
+    <div class="max-w-4xl mx-auto p-6 md:p-8 rounded-lg">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-6 text-blue-800">Introduction</h2>
+      <p class="text-center text-base sm:text-lg text-gray-700 mx-auto max-w-3xl">
+        AdvanHR is a web-based HR management platform that leverages conversational and generative AI to automate routine tasks, generate deep insights, and proactively support decision‑making. By integrating a natural‑language Virtual Assistant, dual‑mode Analytics, predictive Forecasting, Intelligent Document Processing, and a self‑service Chatbot, AdvanHR streamlines workflows and elevates the employee experience—all within a secure, cloud‑native environment.
+      </p>
     </div>
   </section>
 
   <!-- Features -->
-  <section id="features" class="py-20 bg-white px-4">
-    <div class="max-w-6xl mx-auto">
-      <h2 class="text-3xl font-semibold text-center mb-12 text-blue-800">Key Features</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="p-6 bg-gray-50 rounded-lg shadow">
-          <h3 class="font-bold mb-2">Virtual Assistant</h3>
-          <p>Natural language queries converted to SQL via LangSQL-mini and LangSQL for fast, accurate responses, hosted securely on Azure.</p>
+  <section id="features" class="py-16 sm:py-20 bg-white px-4 sm:px-6">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12 text-blue-800">Key Features</h2>
+      <div class="flex flex-col space-y-4 sm:space-y-6">
+        <div class="flex items-start p-4 sm:p-6 bg-white rounded-lg shadow-lg">
+          <div class="text-blue-600 text-3xl sm:text-4xl mr-3 sm:mr-4"><i class="fas fa-robot"></i></div>
+          <div><h3 class="font-bold text-xl sm:text-2xl mb-2">Virtual Assistant</h3><p class="text-sm sm:text-base">Natural language queries converted to SQL via LangSQL-mini and LangSQL for fast, accurate responses, hosted securely on Azure.</p></div>
         </div>
-        <div class="p-6 bg-gray-50 rounded-lg shadow">
-          <h3 class="font-bold mb-2">Document Intelligence</h3>
-          <p>Upload PDFs, DOCX, TXT. Content is chunked (≤500 tokens), embedded (Embedding-3 Large), and indexed in Azure AI Search for instant Q&A.</p>
+        <div class="flex items-start p-4 sm:p-6 bg-white rounded-lg shadow-lg">
+          <div class="text-green-600 text-3xl sm:text-4xl mr-3 sm:mr-4"><i class="fas fa-file-alt"></i></div>
+          <div><h3 class="font-bold text-xl sm:text-2xl mb-2">Document Intelligence</h3><p class="text-sm sm:text-base">Upload PDFs, DOCX, TXT. Content is chunked (≤500 tokens), embedded (Embedding-3 Large), and indexed in Azure AI Search for instant Q&A.</p></div>
         </div>
-        <div class="p-6 bg-gray-50 rounded-lg shadow">
-          <h3 class="font-bold mb-2">Forecasting</h3>
-          <p>Analyzes 600k+ records with EDA-driven feature engineering to predict employee turnover and sales trends.</p>
+        <div class="flex items-start p-4 sm:p-6 bg-white rounded-lg shadow-lg">
+          <div class="text-yellow-500 text-3xl sm:text-4xl mr-3 sm:mr-4"><i class="fas fa-chart-line"></i></div>
+          <div><h3 class="font-bold text-xl sm:text-2xl mb-2">Forecasting</h3><p class="text-sm sm:text-base">Analyzes 600k+ records with EDA-driven feature engineering to predict employee turnover and sales trends.</p></div>
         </div>
-        <div class="p-6 bg-gray-50 rounded-lg shadow">
-          <h3 class="font-bold mb-2">AI-Driven Analytics</h3>
-          <p>Automatically detects trends from data and generates insights, assisting HR with proactive decision-making.</p>
+        <div class="flex items-start p-4 sm:p-6 bg-white rounded-lg shadow-lg">
+          <div class="text-indigo-600 text-3xl sm:text-4xl mr-3 sm:mr-4"><i class="fas fa-lightbulb"></i></div>
+          <div><h3 class="font-bold text-xl sm:text-2xl mb-2">AI-Driven Analytics</h3><p class="text-sm sm:text-base">Automatically detects trends from data and generates insights, assisting HR with proactive decision-making.</p></div>
         </div>
-        <div class="p-6 bg-gray-50 rounded-lg shadow">
-          <h3 class="font-bold mb-2">Chatbot Support</h3>
-          <p>24/7 employee self-service built in Azure AI Studio, trained on policy documents for accurate assistance.</p>
+        <div class="flex items-start p-4 sm:p-6 bg-white rounded-lg shadow-lg">
+          <div class="text-pink-600 text-3xl sm:text-4xl mr-3 sm:mr-4"><i class="fas fa-comments"></i></div>
+          <div><h3 class="font-bold text-xl sm:text-2xl mb-2">Chatbot Support</h3><p class="text-sm sm:text-base">24/7 employee self-service built in Azure AI Studio, trained on policy documents for accurate assistance.</p></div>
         </div>
-        <div class="p-6 bg-gray-50 rounded-lg shadow">
-          <h3 class="font-bold mb-2">Resume Screening</h3>
-          <p>Automates resume filtering and initial technical assessments to shortlist qualified candidates efficiently.</p>
+        <div class="flex items-start p-4 sm:p-6 bg-white rounded-lg shadow-lg">
+          <div class="text-red-600 text-3xl sm:text-4xl mr-3 sm:mr-4"><i class="fas fa-user-check"></i></div>
+          <div><h3 class="font-bold text-xl sm:text-2xl mb-2">Resume Screening</h3><p class="text-sm sm:text-base">Automates resume filtering and initial technical assessments to shortlist qualified candidates efficiently.</p></div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Technical Overview -->
-  <section id="overview" class="py-20 bg-blue-50 px-4">
-    <div class="max-w-6xl mx-auto">
-      <h2 class="text-3xl font-semibold text-center mb-12 text-blue-800">Technical Overview</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="p-6 bg-white rounded-lg shadow">
-          <h3 class="font-bold mb-2">Virtual Assistant</h3>
-          <p>LangSQL-mini for quick, low-resource NL-to-SQL; LangSQL for high-accuracy conversions. Hosted via Azure Cognitive Services.</p>
+  <section id="overview" class="py-16 sm:py-20 bg-white px-4 sm:px-6">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12 text-blue-800">Technical Overview</h2>
+      <div class="flex flex-col space-y-4 sm:space-y-6">
+        <div class="flex items-start p-4 sm:p-6 bg-white rounded-lg shadow-lg">
+          <div class="text-blue-600 text-3xl sm:text-4xl mr-3 sm:mr-4"><i class="fas fa-code"></i></div>
+          <div><h3 class="font-bold text-xl sm:text-2xl mb-2">Virtual Assistant</h3><p class="text-sm sm:text-base">LangSQL-mini for quick NL-to-SQL, LangSQL for high-accuracy conversions, all via Azure Cognitive Services.</p></div>
         </div>
-        <div class="p-6 bg-white rounded-lg shadow">
-          <h3 class="font-bold mb-2">Document Intelligence</h3>
-          <p>Chunks of ≤500 tokens are embedded (Embedding-3 Large) and indexed in Azure AI Search with id, content, embeddings fields.</p>
+        <div class="flex items-start p-4 sm:p-6 bg-white rounded-lg shadow-lg">
+          <div class="text-green-600 text-3xl sm:text-4xl mr-3 sm:mr-4"><i class="fas fa-database"></i></div>
+          <div><h3 class="font-bold text-xl sm:text-2xl mb-2">Document Intelligence</h3><p class="text-sm sm:text-base">Chunks of ≤500 tokens are embedded (Embedding-3 Large) and indexed in Azure AI Search with metadata for fast retrieval.</p></div>
         </div>
-        <div class="p-6 bg-white rounded-lg shadow">
-          <h3 class="font-bold mb-2">Forecasting Module</h3>
-          <p>600,000+ records processed. EDA for feature selection and engineering, training predictive models for turnover and sales.</p>
+        <div class="flex items-start p-4 sm:p-6 bg-white rounded-lg shadow-lg">
+          <div class="text-yellow-500 text-3xl sm:text-4xl mr-3 sm:mr-4"><i class="fas fa-chart-pie"></i></div>
+          <div><h3 class="font-bold text-xl sm:text-2xl mb-2">Forecasting Module</h3><p class="text-sm sm:text-base">Processes 600k+ records; EDA-driven feature engineering and predictive modeling for turnover and sales.</p></div>
         </div>
-        <div class="p-6 bg-white rounded-lg shadow">
-          <h3 class="font-bold mb-2">Chatbot System</h3>
-          <p>Azure AI Studio assistant trained on policy docs, providing contextual responses to employee inquiries.</p>
+        <div class="flex items-start p-4 sm:p-6 bg-white rounded-lg shadow-lg">
+          <div class="text-pink-600 text-3xl sm:text-4xl mr-3 sm:mr-4"><i class="fas fa-robot"></i></div>
+          <div><h3 class="font-bold text-xl sm:text-2xl mb-2">Chatbot System</h3><p class="text-sm sm:text-base">Azure AI Studio assistant trained on policies to provide contextual, accurate employee support.</p></div>
         </div>
-        <div class="p-6 bg-white rounded-lg shadow">
-          <h3 class="font-bold mb-2">Analytics Module</h3>
-          <p>User-Driven: Custom queries via LangSQL-mini<br>AI-Driven: Automated trend detection and question generation for insights.</p>
+        <div class="flex items-start p-4 sm:p-6 bg-white rounded-lg shadow-lg">
+          <div class="text-indigo-600 text-3xl sm:text-4xl mr-3 sm:mr-4"><i class="fas fa-chart-bar"></i></div>
+          <div><h3 class="font-bold text-xl sm:text-2xl mb-2">Analytics Module</h3><p class="text-sm sm:text-base">User-driven custom queries via LangSQL-mini and AI-driven automated trend detection for deeper insights.</p></div>
         </div>
-        <div class="p-6 bg-white rounded-lg shadow">
-          <h3 class="font-bold mb-2">Resume Screening</h3>
-          <p>Filters and shortlists candidates based on predefined criteria; conducts initial technical screening calls.</p>
+        <div class="flex items-start p-4 sm:p-6 bg-white rounded-lg shadow-lg">
+          <div class="text-red-600 text-3xl sm:text-4xl mr-3 sm:mr-4"><i class="fas fa-user-check"></i></div>
+          <div><h3 class="font-bold text-xl sm:text-2xl mb-2">Resume Screening</h3><p class="text-sm sm:text-base">Automated filtering and initial assessments using predefined criteria and technical screening protocols.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technology Stack -->
+  <section id="tech-stack" class="py-16 sm:py-20 bg-white px-4 sm:px-6">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12 text-blue-800">Technology Stack</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        <div class="p-4 sm:p-6 bg-white rounded-lg shadow-lg">
+          <div class="text-blue-600 text-2xl sm:text-3xl mb-3 sm:mb-4"><i class="fas fa-cloud"></i></div>
+          <h3 class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Cloud & AI Services</h3>
+          <ul class="list-disc list-inside space-y-2 text-sm sm:text-base text-gray-700">
+            <li>Microsoft Azure</li>
+            <li>Azure AI Search</li>
+            <li>Azure AI Studio</li>
+            <li>Semantic Search</li>
+          </ul>
+        </div>
+        <div class="p-4 sm:p-6 bg-white rounded-lg shadow-lg">
+          <div class="text-green-600 text-2xl sm:text-3xl mb-3 sm:mb-4"><i class="fas fa-brain"></i></div>
+          <h3 class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Language Models</h3>
+          <ul class="list-disc list-inside space-y-2 text-sm sm:text-base text-gray-700">
+            <li>GPT-4 Omni</li>
+            <li>Embedding-3 Large</li>
+            <li>LangSQL-mini</li>
+            <li>LangSQL</li>
+          </ul>
+        </div>
+        <div class="p-4 sm:p-6 bg-white rounded-lg shadow-lg">
+          <div class="text-purple-600 text-2xl sm:text-3xl mb-3 sm:mb-4"><i class="fas fa-server"></i></div>
+          <h3 class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Backend Processing</h3>
+          <ul class="list-disc list-inside space-y-2 text-sm sm:text-base text-gray-700">
+            <li>Python Document Parsing</li>
+            <li>Data Chunking</li>
+            <li>Model Pipelines</li>
+            <li>SQL Databases</li>
+          </ul>
+        </div>
+        <div class="p-4 sm:p-6 bg-white rounded-lg shadow-lg">
+          <div class="text-red-600 text-2xl sm:text-3xl mb-3 sm:mb-4"><i class="fas fa-chart-line"></i></div>
+          <h3 class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">ML & Forecasting</h3>
+          <ul class="list-disc list-inside space-y-2 text-sm sm:text-base text-gray-700">
+            <li>Scikit-learn</li>
+            <li>XGBoost</li>
+            <li>CatBoost</li>
+            <li>Random Forest</li>
+            <li>AdaBoost</li>
+          </ul>
+        </div>
+        <div class="p-4 sm:p-6 bg-white rounded-lg shadow-lg">
+          <div class="text-yellow-600 text-2xl sm:text-3xl mb-3 sm:mb-4"><i class="fas fa-code"></i></div>
+          <h3 class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Frontend</h3>
+          <ul class="list-disc list-inside space-y-2 text-sm sm:text-base text-gray-700">
+            <li>Responsive HTML5/CSS3</li>
+            <li>JavaScript ES6+</li>
+            <li>Tailwind CSS Framework</li>
+            <li>Font Awesome Icons</li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Team -->
-  <section id="team" class="py-20 bg-gray-100 px-4">
+  <section id="team" class="py-16 sm:py-20 bg-white px-4 sm:px-6">
     <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-3xl font-semibold mb-8 text-blue-800">Our Team</h2>
-      <ul class="space-y-6">
-        <li><strong>Syed M. Adnan Shah</strong><br>Supervisor<br><a href="mailto:syed.adnan@uettaxila.edu.pk" class="text-blue-600">syed.adnan@uettaxila.edu.pk</a></li>
-        <li><strong>Hamza Iftikhar</strong><br>Final Year Student, CS<br><a href="mailto:21-CS-45@students.uettaxila.edu.pk" class="text-blue-600">21-CS-45@students.uettaxila.edu.pk</a></li>
-        <li><strong>Muhammad Hasnain</strong><br>Final Year Student, CS<br><a href="mailto:21-CS-96@students.uettaxila.edu.pk" class="text-blue-600">21-CS-96@students.uettaxila.edu.pk</a></li>
-        <li><strong>Zunysha Naveed</strong><br>Final Year Student, CS<br><a href="mailto:21-CS-75@students.uettaxila.edu.pk" class="text-blue-600">21-CS-75@students.uettaxila.edu.pk</a></li>
-      </ul>
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-12 text-blue-800">Our Team</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+        <div class="p-4 sm:p-6 bg-white rounded-lg shadow-lg flex flex-col items-center">
+          <i class="fas fa-user-tie text-4xl sm:text-5xl text-blue-800 mb-4"></i>
+          <h3 class="font-bold text-lg sm:text-xl mb-1">Syed M. Adnan Shah</h3>
+          <p class="text-gray-600 mb-2 text-sm sm:text-base">Supervisor</p>
+          <a href="mailto:syed.adnan@uettaxila.edu.pk" class="text-blue-600 hover:underline text-xs sm:text-sm">syed.adnan@uettaxila.edu.pk</a>
+        </div>
+        <div class="p-4 sm:p-6 bg-white rounded-lg shadow-lg flex flex-col items-center">
+          <i class="fas fa-user-graduate text-4xl sm:text-5xl text-green-800 mb-4"></i>
+          <h3 class="font-bold text-lg sm:text-xl mb-1">Hamza Iftikhar</h3>
+          <p class="text-gray-600 mb-2 text-sm sm:text-base">Final Year Student, CS</p>
+          <a href="mailto:21-CS-45@students.uettaxila.edu.pk" class="text-blue-600 hover:underline text-xs sm:text-sm">21-CS-45@students.uettaxila.edu.pk</a>
+        </div>
+        <div class="p-4 sm:p-6 bg-white rounded-lg shadow-lg flex flex-col items-center">
+          <i class="fas fa-user-graduate text-4xl sm:text-5xl text-green-800 mb-4"></i>
+          <h3 class="font-bold text-lg sm:text-xl mb-1">Muhammad Hasnain</h3>
+          <p class="text-gray-600 mb-2 text-sm sm:text-base">Final Year Student, CS</p>
+          <a href="mailto:21-CS-96@students.uettaxila.edu.pk" class="text-blue-600 hover:underline text-xs sm:text-sm">21-CS-96@students.uettaxila.edu.pk</a>
+        </div>
+        <div class="p-4 sm:p-6 bg-white rounded-lg shadow-lg flex flex-col items-center">
+          <i class="fas fa-user-graduate text-4xl sm:text-5xl text-green-800 mb-4"></i>
+          <h3 class="font-bold text-lg sm:text-xl mb-1">Zunysha Naveed</h3>
+          <p class="text-gray-600 mb-2 text-sm sm:text-base">Final Year Student, CS</p>
+          <a href="mailto:21-CS-75@students.uettaxila.edu.pk" class="text-blue-600 hover:underline text-xs sm:text-sm">21-CS-75@students.uettaxila.edu.pk</a>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Contact
-  <section id="contact" class="py-12 bg-white text-center px-4">
-    <p class="max-w-xl mx-auto">Deploy this static site easily via Azure Static Web Apps. Connect your GitHub repo, point to this index.html, and let Azure handle the rest.</p>
-  </section> -->
+  <!-- Contact -->
+  <section id="contact" class="py-12 bg-white text-center px-4 sm:px-6">
+    <div class="max-w-xl mx-auto">
+      <p class="text-sm sm:text-base text-gray-700">Deploy this static site easily via Azure Static Web Apps. Connect your GitHub repo, point to this index.html, and let Azure handle the rest.</p>
+    </div>
+  </section>
 
   <!-- Footer -->
-  <footer class="py-6 bg-gray-50 text-center text-gray-600 text-sm">
+  <footer class="py-6 bg-white text-center text-gray-600 text-xs sm:text-sm">
     &copy; 2025 AdvanHR. All rights reserved.
   </footer>
 
   <!-- Scripts -->
   <script>
-    // Mobile Menu Toggle
     document.getElementById('menu-toggle').addEventListener('click', () => {
-      const menu = document.getElementById('mobile-menu');
-      menu.classList.toggle('hidden');
+      document.getElementById('mobile-menu').classList.toggle('hidden');
     });
-    // Smooth Scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -199,5 +276,4 @@
     });
   </script>
 </body>
-
 </html>
